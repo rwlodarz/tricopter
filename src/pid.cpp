@@ -34,7 +34,7 @@ void Pid::computeOutput()
 
     if(m_configuration.epsilon > 0)
     {
-        computeTypeC();
+        compute();
     }
     else
     {
@@ -53,18 +53,7 @@ void Pid::setProcessVariable(float p_processVariable)
     m_processVariable[1] = m_processVariable[0];
     m_processVariable[0] = p_processVariable;
 }
-
-void Pid::computeTypeA()
-{
-    //TODO: uzupelnic w razie potrzeby
-}
-
-void Pid::computeTypeB()
-{
-    //TODO: uzupelnic w razie potrzeby
-}
-
-void Pid::computeTypeC()
+void Pid::compute()
 {
     m_output = m_output - m_configuration.p*(m_processVariable[0] - m_processVariable[1]) + m_i - m_configuration.d*(m_processVariable[0] - 2*m_processVariable[1] + m_processVariable[2]) / m_samplingTime;
 }

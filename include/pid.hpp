@@ -23,7 +23,6 @@ struct PidConfiguration
 class Pid
 {
 public:
-
     Pid(PidConfiguration& p_pidConfiguration, float p_samplingTime);
     ~Pid();
     
@@ -37,9 +36,7 @@ public:
     const PidConfiguration& getPidConfiguration() const { return m_configuration; }
     float getOutput() const { return m_output; }
 private:
-    inline void computeTypeA();
-    inline void computeTypeB();
-    inline void computeTypeC();
+    inline void compute();
 
     float m_setPoint;
     float m_samplingTime;
