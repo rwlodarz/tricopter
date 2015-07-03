@@ -5,10 +5,13 @@
  *      Author: rwlodarz
  */
 
+#include "include/lib/logger.hpp"
+
 
 int main()
 {
-    int test;
+    for(int i = 0; i < 100000; ++i)
+        LOG(ERROR, "dupa");
 
     return 0;
 }
