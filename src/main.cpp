@@ -5,7 +5,7 @@
  *      Author: rwlodarz
  */
 
-#include "include/lib/logger.hpp"
+#include "lib/include/logger.hpp"
 
 
 int main()
