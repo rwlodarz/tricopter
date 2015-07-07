@@ -5,9 +5,8 @@
  *      Author: rwlodarz
  */
 
-#include "../include/pid.hpp"
-
 #include <algorithm>
+#include "../include/Pid.hpp"
 
 Pid::Pid(PidConfiguration& p_pidConfiguration, float p_samplingTime) :
             m_configuration(p_pidConfiguration),

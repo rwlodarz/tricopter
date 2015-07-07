@@ -11,7 +11,7 @@
 #define LOGGING_LEVEL              (_ERROR | _DEBUG)
 #define LOG(lvl,msg)               Logger::getInstance()->addMsg(LOG_LEVEL::lvl,msg)
 
-#include "singleton.hpp"
+#include "Singleton.hpp"
 
 #include <list>
 #include <mutex>

@@ -5,8 +5,8 @@
  *      Author: rwlodarz
  */
 
-#include "lib/include/logger.hpp"
-#include "include/pid.hpp"
+#include "../include/Pid.hpp"
+#include "../lib/include/Logger.hpp"
 
 int main()
 {

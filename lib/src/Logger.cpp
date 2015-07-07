@@ -1,10 +1,10 @@
-#include "../include/logger.hpp"
 #include <pthread.h>
 #include <ratio>
 #include <ctime>
 #include <chrono>
 #include <thread>
 #include <sstream>
+#include "../include/Logger.hpp"
 
 
 const std::string currentDateTime();

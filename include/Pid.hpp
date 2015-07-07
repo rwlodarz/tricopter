@@ -24,7 +24,6 @@ class Pid
 {
 public:
     Pid(PidConfiguration& p_pidConfiguration, float p_samplingTime);
-    ~Pid();
     
     void computeOutput();
 
