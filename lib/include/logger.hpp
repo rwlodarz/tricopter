@@ -27,19 +27,19 @@
 
 enum LOG_LEVEL {INFO, WARN, ERROR, DEBUG};
 
-class CLogger : public CSingleton<CLogger>
+class Logger : public Singleton<Logger>
 {
-    friend class CSingleton<CLogger>;
+    friend class Singleton<Logger>;
 
 public:
      void addMsg(LOG_LEVEL lvl, const std::string &msg);
 
-     ~CLogger();
+     ~Logger();
 
 private:
-     CLogger();
-     CLogger(CLogger const&) = delete;
-     void operator=(CLogger const&) = delete;
+     Logger();
+     Logger(Logger const&) = delete;
+     void operator=(Logger const&) = delete;
 
      void loggingThread(void);
      inline void addMsg(const std::string &msg);

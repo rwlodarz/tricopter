@@ -10,17 +10,17 @@
 const std::string currentDateTime();
 const std::string getTimeInNs();
 
-CLogger::CLogger() : m_endThread(false), m_size(0), m_mutex(), m_addMutex(), m_cv()
+Logger::Logger() : m_endThread(false), m_size(0), m_mutex(), m_addMutex(), m_cv()
 {
      std::string fileName = currentDateTime() + ".log";
      m_file.open(fileName, std::fstream::app | std::fstream::out);
-     m_loggingThread = std::thread(&CLogger::loggingThread, this);
+     m_loggingThread = std::thread(&Logger::loggingThread, this);
      sched_param sch;
      sch.sched_priority = 0;
      pthread_setschedparam(m_loggingThread.native_handle(),SCHED_OTHER,&sch);
 }
 
-CLogger::~CLogger()
+Logger::~Logger()
 {
      m_endThread = true;
      m_cv.notify_one();
@@ -35,7 +35,7 @@ CLogger::~CLogger()
      m_file.close();
 }
 
-void CLogger::loggingThread(void)
+void Logger::loggingThread(void)
 {
      std::unique_lock<std::mutex> lock(m_mutex);
      std::list<std::string> msg;
@@ -57,7 +57,7 @@ void CLogger::loggingThread(void)
      }
 }
 
-void CLogger::addMsg(LOG_LEVEL lvl, const std::string &msg)
+void Logger::addMsg(LOG_LEVEL lvl, const std::string &msg)
 {
      std::string str;
 
@@ -95,7 +95,7 @@ void CLogger::addMsg(LOG_LEVEL lvl, const std::string &msg)
      }
 }
 
-void CLogger::addMsg(const std::string& msg)
+void Logger::addMsg(const std::string& msg)
 {
      m_addMutex.lock();
      m_size += msg.length();

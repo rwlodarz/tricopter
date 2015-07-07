@@ -6,7 +6,7 @@
 
 template<class T>
 
-class CSingleton
+class Singleton
 {
 public:
     static std::shared_ptr<T>& getInstance()
@@ -23,11 +23,11 @@ public:
     }
 
 protected:
-    CSingleton() {};
-    CSingleton(CSingleton const&) = delete;
-    CSingleton& operator=(CSingleton const&) = delete;
+    Singleton() {};
+    Singleton(Singleton const&) = delete;
+    Singleton& operator=(Singleton const&) = delete;
 
-    virtual ~CSingleton()
+    virtual ~Singleton()
     {
         m_instance = nullptr;
     }
@@ -38,9 +38,9 @@ private:
 };
 
 template<class T>
-std::shared_ptr<T> CSingleton<T>::m_instance = nullptr;
+std::shared_ptr<T> Singleton<T>::m_instance = nullptr;
 
 template<class T>
-std::mutex CSingleton<T>::m_mutex;
+std::mutex Singleton<T>::m_mutex;
 
 #endif // _SINGLETON_H_
