@@ -7,6 +7,6 @@ OBJS=logger.o
 main: $(OBJS) src/main.cpp
 	$(CXX) $(CXXFLAGS) $(LFLAGS) $(OBJS) src/main.cpp -o main
 
-logger.o: src/lib/logger.cc include/lib/logger.h
-	$(CXX) -c $(CXXFLAGS) $(LFLAGS) logger.cc -o logger.o
+logger.o: src/lib/logger.cpp include/lib/logger.hpp
+	$(CXX) -c $(CXXFLAGS) $(LFLAGS) logger.cpp -o logger.o
 	
