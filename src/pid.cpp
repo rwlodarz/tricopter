@@ -27,7 +27,7 @@ void Pid::computeOutput()
 
     m_error[2] = m_error[1];
     m_error[1] = m_error[0];
-    m_error[0] = m_samplingTime - m_processVariable;
+    m_error[0] = m_samplingTime - m_processVariable[0];
 
     if(std::abs(m_error[0] < m_configuration.epsilon))
         m_i = m_configuration.i * m_samplingTime * m_error[0];
