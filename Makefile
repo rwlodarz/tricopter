@@ -8,7 +8,7 @@ main: $(OBJS) src/main.cpp
 	$(CXX) $(CXXFLAGS) $(LFLAGS) $(OBJS) src/main.cpp -o main
 
 logger.o: lib/src/logger.cpp lib/include/logger.hpp
-	$(CXX) -c $(CXXFLAGS) $(LFLAGS) logger.cpp -o logger.o
+	$(CXX) -c $(CXXFLAGS) $(LFLAGS) lib/src/logger.cpp -o logger.o
 	
 clean:
 	rm -r -f *.o

@@ -1,4 +1,4 @@
-#include "../../include/lib/logger.hpp"
+#include "../include/logger.hpp"
 #include <pthread.h>
 #include <ratio>
 #include <ctime>
