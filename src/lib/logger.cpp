@@ -7,6 +7,9 @@
 #include <sstream>
 
 
+const std::string currentDateTime();
+const std::string getTimeInNs();
+
 CLogger::CLogger() : m_endThread(false), m_size(0), m_mutex(), m_addMutex(), m_cv()
 {
      std::string fileName = currentDateTime() + ".log";
